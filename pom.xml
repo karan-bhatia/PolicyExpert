@@ -8,7 +8,7 @@
     <artifactId>policyExpert</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>PolicyExpert</name>
-    <description>Renovo BDD Test Framework</description>
+    <description>Policy Expert BDD Test Framework</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -17,8 +17,6 @@
         <poi.version>4.1.1</poi.version>
         <maven.compiler.version>3.3</maven.compiler.version>
         <lombok.version>1.18.16</lombok.version>
-        <generated.runner.directory>${project.build.directory}/parallel/runners</generated.runner.directory>
-        <generated.feature.directory>${project.build.directory}/parallel/features</generated.feature.directory>
         <maven.build.helper.plugin.version>3.0.0</maven.build.helper.plugin.version>
     </properties>
 
