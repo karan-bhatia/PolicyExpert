@@ -6,12 +6,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    glue = {"com.policyExpert.stepDefinition"},
-    features = "src/test/resources/features/",
-    plugin = {
-        "pretty",
-        "html:test-output",
-    }
+        glue = {"com.policyExpert.stepDefinition"},
+        features = "src/test/resources/features/",
+        plugin = {
+                "pretty",
+                "html:test-output",
+        }, tags = "@ValidatePersonalDataWhenStatementStatusIs_I_Agree"
 )
 class TestRunner {
 }

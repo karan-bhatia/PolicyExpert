@@ -13,7 +13,7 @@ Feature: Policy Expert exercise
       | Mr    | Adam      | Hilton   | 12      | May      | 2000    | Divorced      | Yes           | 12121212 | vketipisz@qmetric.co.uk | Agree             |
 
   @ValidatePersonalDataWhenStatementStatusIs_I_Disagree
-  Scenario Outline: Validate personal data on Policy Expert page
+  Scenario Outline: Validate the data when Statement Status is selected as Disagree
     Given user opens "Chrome" browser and access Policy Expert URL "https://insurance.policyexpert.co.uk/home"
     And user enters the "<Title>","<FirstName>", "<LastName>",
     And user enters Date of Birth as "<DOBDate>","<DOBMonth>" and "<DOBYear>"
@@ -30,7 +30,7 @@ Feature: Policy Expert exercise
       | Mr    | Adam      | Hilton   | 12      | May      | 2000    | Divorced      | Yes           | 12121212 | vketipisz@qmetric.co.uk | Disagree          | Agree                  |                                                    |               |               |                 |              |
       | Mr    | Adam      | Hilton   | 12      | May      | 2000    | Divorced      | Yes           | 12121212 | vketipisz@qmetric.co.uk | Disagree          | Disagree               | Beauty                                             | 10            | 43            |                 |              |
       | Mr    | Adam      | Hilton   | 12      | May      | 2000    | Divorced      | Yes           | 12121212 | vketipisz@qmetric.co.uk | Disagree          | Disagree               | Bed and breakfast                                  | 5             |               | 6               |              |
-      | Mr    | Adam      | Hilton   | 12      | May      | 2000    | Divorced      | Yes           | 12121212 | vketipisz@qmetric.co.uk | Disagree          | Disagree               | Registered child-minding                           | 14            | 60            | 6               |              |
+      | Mr    | Adam      | Hilton   | 12      | May      | 2000    | Divorced      | Yes           | 12121212 | vketipisz@qmetric.co.uk | Disagree          | Disagree               | Registered child-minding                           | 14            | 60            |                 | 6            |
       | Mr    | Adam      | Hilton   | 12      | May      | 2000    | Divorced      | Yes           | 12121212 | vketipisz@qmetric.co.uk | Disagree          | Disagree               | Clerical work only                                 | 14            | 54            |                 |              |
       | Mr    | Adam      | Hilton   | 12      | May      | 2000    | Divorced      | Yes           | 12121212 | vketipisz@qmetric.co.uk | Disagree          | Disagree               | Fostering                                          | 14            | 54            |                 | 32           |
       | Mr    | Adam      | Hilton   | 12      | May      | 2000    | Divorced      | Yes           | 12121212 | vketipisz@qmetric.co.uk | Disagree          | Disagree               | Guest house                                        | 14            | 54            |                 |              |

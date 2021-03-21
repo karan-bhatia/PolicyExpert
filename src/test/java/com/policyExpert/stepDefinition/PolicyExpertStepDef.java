@@ -2,7 +2,6 @@ package com.policyExpert.stepDefinition;
 
 import com.policyExpert.pages.PolicyExpertPage;
 import com.policyExpert.utils.BrowserSetting;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
@@ -41,37 +40,31 @@ public class PolicyExpertStepDef {
 
     @And("^user selects the status for business purpose property as \"([^\"]*)\"$")
     public void userSelectsTheStatusForBusinessPurposePropertyAs(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        new PolicyExpertPage(BrowserSetting.getInstance().getDriver()).selectBusinessPurposeStatus(arg0);
     }
 
     @And("^user selects the type of business from dropdown as \"([^\"]*)\"$")
     public void userSelectsTheTypeOfBusinessFromDropdownAs(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        new PolicyExpertPage(BrowserSetting.getInstance().getDriver()).selectBusinessType(arg0);
     }
 
     @And("^user selects the number of employees as \"([^\"]*)\"$")
     public void userSelectsTheNumberOfEmployeesAs(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        new PolicyExpertPage(BrowserSetting.getInstance().getDriver()).selectNoOfEmployees(arg0);
     }
 
     @And("^user selects the number of daily visitors as \"([^\"]*)\"$")
     public void userSelectsTheNumberOfDailyVisitorsAs(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        new PolicyExpertPage(BrowserSetting.getInstance().getDriver()).selectDailyVisitors(arg0);
     }
 
     @And("^user selects max number of paying guests as \"([^\"]*)\"$")
     public void userSelectsMaxNumberOfPayingGuestsAs(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        new PolicyExpertPage(BrowserSetting.getInstance().getDriver()).selectMaxPayingGuests(arg0);
     }
 
     @And("^user selects max number of children care for \"([^\"]*)\"$")
     public void userSelectsMaxNumberOfChildrenCareFor(String arg0) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        new PolicyExpertPage(BrowserSetting.getInstance().getDriver()).selectChildCare(arg0);
     }
 }

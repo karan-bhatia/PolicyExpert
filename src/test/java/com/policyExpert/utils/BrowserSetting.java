@@ -7,14 +7,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class BrowserSetting {
 
     private static BrowserSetting instance;
+    @Getter
+    @Setter
+    private WebDriver driver;
 
-    protected BrowserSetting() {
+    public BrowserSetting() {
     }
 
     public static BrowserSetting getInstance() {
@@ -23,10 +25,6 @@ public class BrowserSetting {
         }
         return instance;
     }
-
-    @Getter
-    @Setter
-    private WebDriver driver;
 
     public void initDriver(String browserType) {
         switch (browserType) {
@@ -43,10 +41,10 @@ public class BrowserSetting {
         System.out.println("\n\nLaunching google chrome");
         if (OperatingSystem.isMac()) {
             System.setProperty("webdriver.chrome.driver",
-                System.getProperty("user.dir") + "/drivers/mac/chromedriver");
+                    System.getProperty("user.dir") + "/drivers/mac/chromedriver");
         } else {
             System.setProperty("webdriver.chrome.driver",
-                System.getProperty("user.dir") + "\\drivers\\windows\\chromedriver.exe");
+                    System.getProperty("user.dir") + "\\drivers\\windows\\chromedriver.exe");
         }
         ChromeOptions options = new ChromeOptions();
         options.setCapability("capability_name", "capability_value");
@@ -59,6 +57,10 @@ public class BrowserSetting {
         return new ChromeDriver(options);
     }
 
+    public void launchURL(String url) {
+        driver.get(url);
+    }
+
     public void initializeTestBaseSetup(String browser) {
         initDriver(browser);
         driver.manage().deleteAllCookies();
@@ -67,21 +69,15 @@ public class BrowserSetting {
 
     }
 
-    public void launchURL(String url) {
-        driver.get(url);
-    }
-
     @After
-    public void tearDown() {
-        driver = BrowserSetting.getInstance().getDriver();
+    public void afterScenario() {
+        WebDriver driver = BrowserSetting.getInstance().getDriver();
         try {
-            System.out.println("===Driver quit===");
             driver.quit();
         } catch (Exception e) {
             e.getMessage();
         }
     }
-
 
 
 }
