@@ -4,8 +4,6 @@ import cucumber.api.Scenario;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Collection;
-
 public class DeclarationStatus {
 
     private static DeclarationStatus instance;
@@ -23,42 +21,7 @@ public class DeclarationStatus {
 
     @Setter
     @Getter
-    private Scenario scenario = new Scenario() {
-        @Override
-        public Collection<String> getSourceTagNames() {
-            return null;
-        }
-
-        @Override
-        public String getStatus() {
-            return null;
-        }
-
-        @Override
-        public boolean isFailed() {
-            return false;
-        }
-
-        @Override
-        public void embed(byte[] bytes, String s) {
-
-        }
-
-        @Override
-        public void write(String s) {
-
-        }
-
-        @Override
-        public String getName() {
-            return null;
-        }
-
-        @Override
-        public String getId() {
-            return null;
-        }
-    };
+    private Scenario scenario;
 
     protected DeclarationStatus() {
     }

@@ -50,36 +50,53 @@ public class PolicyExpertPage {
     private WebElement noOfDailyVisitors;
     @FindBy(xpath = "//div[@class='row question-row-what-is-the-maximum']//select")
     private WebElement noOfPayingGuests_noOfChildCare;
-
-
-    @FindBy(xpath = "//div[@data-testid='section'][2]//div[@data-testid='question'][5]//button[1]")
-    private WebElement noneOccupantsBankrupt_agree;
-    @FindBy(xpath = "//div[@data-testid='section'][2]//div[@data-testid='question'][5]//button[2]")
-    private WebElement noneOccupantsBankrupt_disagree;
-    @FindBy(xpath = "//div[@class='row question-row-is-the-bankruptcy-ty']//select")
-    private WebElement typePfBankruptcy;
-    @FindBy(xpath = "//div[@class='row question-row-has-this-been-discha']//button[1]")
-    private WebElement discharged_agree;
-    @FindBy(xpath = "//div[@class='row question-row-has-this-been-discha']//button[2]")
-    private WebElement discharged_disagree;
-    @FindBy(xpath = "//div[@class='row question-row-please-provide-date']//input[@type='text']")
-    private WebElement dateOfDischarge;
-    @FindBy(xpath = "//div[@data-testid='section'][2]//div[@data-testid='question'][8]//button[1]")
-    private WebElement countyCourtJudgement_agree;
-    @FindBy(xpath = "//div[@data-testid='section'][2]//div[@data-testid='question'][8]//button[2]")
-    private WebElement countyCourtJudgement_disagree;
-    @FindBy(xpath = "//div[@class='row question-row-how-many-cc-js-have']//select")
-    private WebElement noOfCCJS;
-    @FindBy(xpath = "//div[@class='row question-row-what-was-the-value-o']//select")
-    private WebElement valueOfCCJS;
-    @FindBy(xpath = "//div[@class='row question-row-none-of-the-occupant']//button[1]")
-    private WebElement noneHomeInsuranceDeclined_agree;
-    @FindBy(xpath = "//div[@class='row question-row-none-of-the-occupant']//button[2]")
-    private WebElement noneHomeInsuranceDeclined_disagree;
+    @FindBy(xpath = "//div[@class='row question-row-address-of-property']//input[@type='text']")
+    private WebElement postcode;
+    @FindBy(xpath = "//button[@data-di-id='di-id-1bc45812-f66ffe1']")
+    private WebElement manualAdressButton;
+    @FindBy(xpath = "//div[@data-testid='line_1']/div[@class='col-xs-12'][2]/input")
+    private WebElement adressLine1;
+    @FindBy(xpath = "//div[@data-testid='line_2']/div[@class='col-xs-12'][2]/input")
+    private WebElement adressLine2;
+    @FindBy(xpath = "//div[@data-testid='town']/div[@class='col-xs-12'][2]/input")
+    private WebElement town;
+    @FindBy(xpath = "//div[@data-testid='postcode']/div[@class='col-xs-12'][2]/input")
+    private WebElement postcodeManual;
+    @FindBy(xpath = "//button[@data-testid='save-address']")
+    private WebElement addressSaveButton;
+    @FindBy(xpath = "//div[@class='row question-row-is-this-the-same-as']//button[1]")
+    private WebElement correspondaceAddress_Yes;
+    @FindBy(xpath = "//div[@class='row question-row-is-this-the-same-as']//button[2]")
+    private WebElement correspondaceAddress_No;
+    @FindBy(xpath = "//div[@class='row question-row-what-type-of-propert']//select")
+    private WebElement typeOfProperty;
+    @FindBy(xpath = "//div[@class='row question-row-which-of-these-best']//select")
+    private WebElement propertyDescription;
+    @FindBy(xpath = "//div[@class='row question-row-approximately-in-whi']//input")
+    private WebElement yearOfBuilt;
+    @FindBy(xpath = "//div[@class='row question-row-how-many-bedrooms-do']//select")
+    private WebElement noOfBedrooms;
+    @FindBy(xpath = "//div[@class='row question-row-do-you-own-the-prope']//select")
+    private WebElement propertyOwnership;
+    @FindBy(xpath = "//div[@class='row question-row-who-is-the-property']//select")
+    private WebElement propertyOccupied;
+    @FindBy(xpath = "//div[@class='row question-row-when-is-the-property']//select")
+    private WebElement propertyOccupiedTime;
+    @FindBy(xpath = "//div[@class='row question-row-are-there-trees-tall']//button[1]")
+    private WebElement treesTaller_Yes;
+    @FindBy(xpath = "//div[@class='row question-row-are-there-trees-tall']//button[2]")
+    private WebElement treesTaller_No;
+    @FindBy(xpath = "//div[@class='row question-row-does-your-property-h']//button[1]")
+    private WebElement flatRoof_Yes;
+    @FindBy(xpath = "//div[@class='row question-row-does-your-property-h']//button[2]")
+    private WebElement flatRoof_No;
+    @FindBy(xpath = "//body//div[@class='panel panel-default'][4]//button[1]")
+    private WebElement addressStatement_agree;
+    @FindBy(xpath = "//body//div[@class='panel panel-default'][4]//button[2]")
+    private WebElement addressStatement_disagree;
 
     public PolicyExpertPage(WebDriver driver) {
         this.driver = driver;
-        //this.extentTest = ExtentManager.getInstance().getExtentTest();
         PageFactory.initElements(driver, this);
     }
 
@@ -227,6 +244,159 @@ public class PolicyExpertPage {
                     SeleniumUtility.takeScreenShot();
                 }
             }
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void enter_property_adress(String post_code) throws InterruptedException {
+        try {
+            postcode.sendKeys(post_code);
+            manualAdressButton.click();
+            manualAdressButton.click();
+            Thread.sleep(2000);
+            adressLine1.sendKeys("110");
+            adressLine2.sendKeys("BishopGate");
+            town.sendKeys("London");
+            postcodeManual.sendKeys(post_code);
+            addressSaveButton.click();
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void sameCorrespondanceAddress(String response) {
+        try {
+            if (response.equalsIgnoreCase("Yes"))
+                correspondaceAddress_Yes.click();
+            else
+                correspondaceAddress_No.click();
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void select_property_type(String propertyType) {
+        try {
+            typeOfProperty.sendKeys(propertyType);
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void select_property_description(String property_description) {
+        try {
+            propertyDescription.sendKeys(property_description);
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void enter_year_of_property(String property_Year) {
+        try {
+            yearOfBuilt.sendKeys(property_Year);
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void no_of_bedroom(String bedroom_no) {
+        try {
+            noOfBedrooms.sendKeys(bedroom_no);
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void select_property_ownership(String property_ownership) {
+        try {
+            propertyOwnership.sendKeys(property_ownership);
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void select_propert_occupied_by(String property_occupied) {
+        try {
+            propertyOccupied.sendKeys(property_occupied);
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void select_property_occupied_time(String property_occupied_time) {
+        try {
+            propertyOccupiedTime.sendKeys(property_occupied_time);
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void length_of_trees(String response) {
+        try {
+            if (response.equalsIgnoreCase("Yes"))
+                treesTaller_Yes.click();
+            else
+                treesTaller_No.click();
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void select_flat_roof(String response) {
+        try {
+            if (response.equalsIgnoreCase("Yes"))
+                flatRoof_Yes.click();
+            else
+                flatRoof_No.click();
+            SeleniumUtility.takeScreenShot();
+        } catch (Exception e) {
+            SeleniumUtility.takeScreenShot();
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    public void select_address_StatementStatus(String status) {
+        try {
+            if (status.equalsIgnoreCase("Agree"))
+                addressStatement_agree.click();
+            else
+                addressStatement_disagree.click();
+            DeclarationStatus.getInstance().setStatementStatus(status);
+            SeleniumUtility.takeScreenShot();
         } catch (Exception e) {
             SeleniumUtility.takeScreenShot();
             e.printStackTrace();

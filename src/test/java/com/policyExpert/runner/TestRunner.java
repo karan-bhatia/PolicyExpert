@@ -10,8 +10,11 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         plugin = {
                 "pretty",
-                "html:test-output",
-        }, tags = "@ValidatePersonalDataWhenStatementStatusIs_I_Agree"
+                "html:target/cucumber-html-report",
+                "json:json_output/cucumber.json",
+                "junit:junit_xml/cucumber.xml",
+                "pretty:target/cucumber-pretty.txt", "usage:target/cucumber-usage.json", "junit:target/cucumber-results.xml"
+        }
 )
 class TestRunner {
 }

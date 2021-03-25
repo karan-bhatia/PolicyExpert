@@ -1,6 +1,5 @@
 package com.policyExpert.utils;
 
-import cucumber.api.java.After;
 import lombok.Getter;
 import lombok.Setter;
 import org.openqa.selenium.WebDriver;
@@ -68,16 +67,4 @@ public class BrowserSetting {
         driver.manage().timeouts().implicitlyWait(20, SECONDS);
 
     }
-
-    @After
-    public void afterScenario() {
-        WebDriver driver = BrowserSetting.getInstance().getDriver();
-        try {
-            driver.quit();
-        } catch (Exception e) {
-            e.getMessage();
-        }
-    }
-
-
 }
