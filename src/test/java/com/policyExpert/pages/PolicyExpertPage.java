@@ -1,7 +1,6 @@
 package com.policyExpert.pages;
 
 import com.policyExpert.utils.DeclarationStatus;
-import com.policyExpert.utils.SeleniumUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -105,9 +104,7 @@ public class PolicyExpertPage {
             titleDropDown.sendKeys(title);
             firstName.sendKeys(first_Name);
             lastName.sendKeys(last_Name);
-            SeleniumUtility.takeScreenShot();
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -119,9 +116,7 @@ public class PolicyExpertPage {
             DOBDate.sendKeys(date);
             DOBMonth.sendKeys(month);
             DOBYear.sendKeys(year);
-            SeleniumUtility.takeScreenShot();
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -137,9 +132,7 @@ public class PolicyExpertPage {
                 smoke_NO.click();
             telephoneNo.sendKeys(phone_No);
             emailId.sendKeys(email_Id);
-            SeleniumUtility.takeScreenShot();
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -153,9 +146,7 @@ public class PolicyExpertPage {
             else
                 statement_disagree.click();
             DeclarationStatus.getInstance().setStatementStatus(status);
-            SeleniumUtility.takeScreenShot();
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -169,10 +160,8 @@ public class PolicyExpertPage {
                 else
                     businessPurpose_disagree.click();
                 DeclarationStatus.getInstance().setBusinessPurposeStatus(status);
-                SeleniumUtility.takeScreenShot();
             }
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -187,7 +176,6 @@ public class PolicyExpertPage {
                 }
             }
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -199,7 +187,6 @@ public class PolicyExpertPage {
                 noOfEmployees.sendKeys(employeeNo);
             }
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -210,12 +197,10 @@ public class PolicyExpertPage {
             if (DeclarationStatus.getInstance().getStatementStatus().equalsIgnoreCase("Disagree") && DeclarationStatus.getInstance().getBusinessPurposeStatus().equalsIgnoreCase("Disagree")) {
                 if (!(DeclarationStatus.getInstance().getBusinessType().equalsIgnoreCase("Bed and breakfast") || DeclarationStatus.getInstance().getBusinessType().equalsIgnoreCase("Small hotel"))) {
                     noOfDailyVisitors.sendKeys(dailyVisitors);
-                    SeleniumUtility.takeScreenShot();
                 }
             }
 
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -226,11 +211,9 @@ public class PolicyExpertPage {
             if (DeclarationStatus.getInstance().getStatementStatus().equalsIgnoreCase("Disagree") && DeclarationStatus.getInstance().getBusinessPurposeStatus().equalsIgnoreCase("Disagree")) {
                 if ((DeclarationStatus.getInstance().getBusinessType().equalsIgnoreCase("Bed and breakfast") || DeclarationStatus.getInstance().getBusinessType().equalsIgnoreCase("Small hotel"))) {
                     noOfPayingGuests_noOfChildCare.sendKeys(payingGuests);
-                    SeleniumUtility.takeScreenShot();
                 }
             }
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -241,11 +224,11 @@ public class PolicyExpertPage {
             if (DeclarationStatus.getInstance().getStatementStatus().equalsIgnoreCase("Disagree") && DeclarationStatus.getInstance().getBusinessPurposeStatus().equalsIgnoreCase("Disagree")) {
                 if (DeclarationStatus.getInstance().getBusinessType().equalsIgnoreCase("Registered child-minding") || DeclarationStatus.getInstance().getBusinessType().equalsIgnoreCase("Fostering")) {
                     noOfPayingGuests_noOfChildCare.sendKeys(childCare);
-                    SeleniumUtility.takeScreenShot();
+
                 }
             }
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -262,9 +245,9 @@ public class PolicyExpertPage {
             town.sendKeys("London");
             postcodeManual.sendKeys(post_code);
             addressSaveButton.click();
-            SeleniumUtility.takeScreenShot();
+
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -276,9 +259,9 @@ public class PolicyExpertPage {
                 correspondaceAddress_Yes.click();
             else
                 correspondaceAddress_No.click();
-            SeleniumUtility.takeScreenShot();
+
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -287,9 +270,9 @@ public class PolicyExpertPage {
     public void select_property_type(String propertyType) {
         try {
             typeOfProperty.sendKeys(propertyType);
-            SeleniumUtility.takeScreenShot();
+
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -298,9 +281,9 @@ public class PolicyExpertPage {
     public void select_property_description(String property_description) {
         try {
             propertyDescription.sendKeys(property_description);
-            SeleniumUtility.takeScreenShot();
+
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -309,9 +292,9 @@ public class PolicyExpertPage {
     public void enter_year_of_property(String property_Year) {
         try {
             yearOfBuilt.sendKeys(property_Year);
-            SeleniumUtility.takeScreenShot();
+
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -320,9 +303,9 @@ public class PolicyExpertPage {
     public void no_of_bedroom(String bedroom_no) {
         try {
             noOfBedrooms.sendKeys(bedroom_no);
-            SeleniumUtility.takeScreenShot();
+
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -331,9 +314,9 @@ public class PolicyExpertPage {
     public void select_property_ownership(String property_ownership) {
         try {
             propertyOwnership.sendKeys(property_ownership);
-            SeleniumUtility.takeScreenShot();
+
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -342,9 +325,9 @@ public class PolicyExpertPage {
     public void select_propert_occupied_by(String property_occupied) {
         try {
             propertyOccupied.sendKeys(property_occupied);
-            SeleniumUtility.takeScreenShot();
+
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -353,9 +336,9 @@ public class PolicyExpertPage {
     public void select_property_occupied_time(String property_occupied_time) {
         try {
             propertyOccupiedTime.sendKeys(property_occupied_time);
-            SeleniumUtility.takeScreenShot();
+
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
+
             e.printStackTrace();
             throw e;
         }
@@ -367,9 +350,7 @@ public class PolicyExpertPage {
                 treesTaller_Yes.click();
             else
                 treesTaller_No.click();
-            SeleniumUtility.takeScreenShot();
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -381,9 +362,7 @@ public class PolicyExpertPage {
                 flatRoof_Yes.click();
             else
                 flatRoof_No.click();
-            SeleniumUtility.takeScreenShot();
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
@@ -396,9 +375,7 @@ public class PolicyExpertPage {
             else
                 addressStatement_disagree.click();
             DeclarationStatus.getInstance().setStatementStatus(status);
-            SeleniumUtility.takeScreenShot();
         } catch (Exception e) {
-            SeleniumUtility.takeScreenShot();
             e.printStackTrace();
             throw e;
         }
