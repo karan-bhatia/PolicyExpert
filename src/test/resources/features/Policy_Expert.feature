@@ -3,9 +3,9 @@ Feature: Policy Expert exercise
   @ValidateTheDataPassedForSuccessFlow
   Scenario: Validate personal data on Policy Expert page
     Given user opens "Chrome" browser and access Policy Expert URL "https://insurance.policyexpert.co.uk/home"
-    And user enters the "Mr","Adam", "Hilton",
+    And user enters the name "Mr","Adam", "Hilton",
     And user enters Date of Birth as "12","May" and "2000"
-    And user enters the "Divorced", "Yes", "12121212", "vketipisz@qmetric.co.uk"
+    And user enters the personal details as "Divorced", "Yes", "12121212", "vketipisz@qmetric.co.uk"
     When user selects the status in Statements about you as "Agree"
     And user enters the postcode of the address as "EC2N 4AY"
     And user selects the same correspondence address as "Yes"
@@ -23,9 +23,9 @@ Feature: Policy Expert exercise
   @ValidateDataIsProvidedForDifferentSetOfQuestions
   Scenario Outline: Validate the data when Statement Status is selected as Disagree
     Given user opens "Chrome" browser and access Policy Expert URL "https://insurance.policyexpert.co.uk/home"
-    And user enters the "<Title>","<FirstName>", "<LastName>",
+    And user enters the name "<Title>","<FirstName>", "<LastName>",
     And user enters Date of Birth as "<DOBDate>","<DOBMonth>" and "<DOBYear>"
-    And user enters the "<MaritalStatus>", "<SmokingStatus>", "<PhoneNo>", "<EmailId>"
+    And user enters the personal details as "<MaritalStatus>", "<SmokingStatus>", "<PhoneNo>", "<EmailId>"
     When user selects the status in Statements about you as "<Statements_Status>"
     And user selects the status for business purpose property as "<BusinessPurpose_Status>"
     And user selects the type of business from dropdown as "<TypeOfBusiness>"

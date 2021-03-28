@@ -2,11 +2,10 @@ package com.policyExpert.stepDefinition;
 
 import com.policyExpert.utils.BrowserSetting;
 import com.policyExpert.utils.DeclarationStatus;
+import com.policyExpert.utils.SeleniumUtility;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 public class Hooks {
@@ -22,7 +21,7 @@ public class Hooks {
         WebDriver driver = BrowserSetting.getInstance().getDriver();
         try {
             if (scenario.isFailed()) {
-                scenario.embed(((TakesScreenshot) BrowserSetting.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES), "image/png");
+                SeleniumUtility.takeScreenShot();
             }
             driver.close();
             driver.quit();

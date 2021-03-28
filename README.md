@@ -19,7 +19,7 @@ mvn clean test
 ```
 To run any particular Test.
 ```
-mvn clean test -DcucumberTags="Tags"
+mvn clean test -Dcucumber.options="--tags 'Tags'"
 ```
 ####Tags
 @ValidateTheDataPassedForSuccessFlow
@@ -27,4 +27,4 @@ mvn clean test -DcucumberTags="Tags"
 
 ###Reports
 
-To check the execution report, navigate to `/taget/cucumber-html-report/index.html` and open the file in browser. For each pass test the report will appear in green mentioning the feature steps & data and for failed tests it will appear in red along with screenshot attached for the failed step.
+To check the execution report, navigate to `/taget/cucumber-html-report/index.html` and open the file in browser. For each pass test the report will appear in green mentioning the feature steps & data along with the screenshot for each of the step and for failed tests it will appear in red along with screenshot.
