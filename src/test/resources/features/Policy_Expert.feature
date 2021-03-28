@@ -1,6 +1,6 @@
 Feature: Policy Expert exercise
 
-  @ValidatePersonalDataWhenStatementStatusIs_I_Agree
+  @ValidateTheDataPassedForSuccessFlow
   Scenario: Validate personal data on Policy Expert page
     Given user opens "Chrome" browser and access Policy Expert URL "https://insurance.policyexpert.co.uk/home"
     And user enters the "Mr","Adam", "Hilton",
@@ -20,7 +20,7 @@ Feature: Policy Expert exercise
     And user selects the flat roof for property as "No"
     Then user selects statements about property as "Agree"
 
-  @ValidatePersonalDataWhenStatementStatusIs_I_Disagree
+  @ValidateDataIsProvidedForDifferentSetOfQuestions
   Scenario Outline: Validate the data when Statement Status is selected as Disagree
     Given user opens "Chrome" browser and access Policy Expert URL "https://insurance.policyexpert.co.uk/home"
     And user enters the "<Title>","<FirstName>", "<LastName>",
